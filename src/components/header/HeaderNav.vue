@@ -3,7 +3,7 @@
         <!--- more free and premium Tailwind CSS components at https://tailwinduikit.com/ --->
         <div class="bg-white rounded shadow-lg py-5 px-7">
             <nav class="flex justify-between">
-                <div class="flex items-center space-x-3 lg:pr-16 pr-6">
+                <a class="flex items-center space-x-3 lg:pr-16 pr-6" href="/">
                     <svg
                         class="cursor-pointer"
                         width="34"
@@ -17,8 +17,8 @@
                             fill="#1F2937"
                         />
                     </svg>
-                    <h2 class="font-normal text-2xl leading-6 text-gray-800">Learning</h2>
-                </div>
+                    <h2 class="font-normal text-2xl leading-6 text-gray-800">Learning Site</h2>
+                </a>
 
                 <div class="relative flex-auto">
                     <ul class="flex flex-auto space-x-2 absolute left-0 top-0 items-start">
@@ -57,7 +57,7 @@ export default {
     data() {
         return {
             menu_list: [
-                ['數學', [['乘法', '#']]],
+                ['數學', [['乘法', '/multiplication']]],
                 ['英文', [['單字', '#']]],
             ],
         };

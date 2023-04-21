@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import Multiplication from './components//Multiplication.vue'
 import HeaderNav from './components/header/HeaderNav.vue'
 </script>
 
 <template>
   <HeaderNav />
+  <router-view/>
 </template>
 
 <style scoped>
