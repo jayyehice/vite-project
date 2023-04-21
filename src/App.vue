@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
 import Multiplication from './components//Multiplication.vue'
+import HeaderNav from './components/header/HeaderNav.vue'
 </script>
 
 <template>
-  <Multiplication />
+  <HeaderNav />
 </template>
 
 <style scoped>
