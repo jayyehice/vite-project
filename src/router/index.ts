@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Multiplication from '../components/Multiplication.vue'
 
 const routes = [
-  {path: '/multiplication', name: 'Multiplication', component: Multiplication},
+  {path: '/', name: 'home', component: () => import('../components/home/Index.vue')},
+  {path: '/multiplication', name: 'Multiplication', component: () => import('../components/Multiplication.vue')},
 ]
 
 const router = createRouter({
