@@ -1,48 +1,57 @@
 <template>
-    <div class="row justify-content-center">
+    <div class="2xl:container 2xl:mx-auto mt-10">
 
-        <div class="col-11">
+        <div class="p-12">
 
             <div
-                class="row rowm"
+                class="flex md:w-6/12 mx-auto justify-between mb-10 font-bold text-4xl"
                 v-for="(exam, index) in examList"
                 :key="index"
             >
 
-                <div class="col-2">
-                    <h2 class="b">{{exam[0]}}</h2>
+                <div class="w-2/12">
+                    <h2 class="">{{exam[0]}}</h2>
                 </div>
 
-                <div class="col">
+                <div class="w-2/12">
                     <h2>X</h2>
                 </div>
 
-                <div class="col-2">
+                <div class="w-2/12">
                     <h2 class="b">{{exam[1]}}</h2>
                 </div>
 
-                <div class="col">
+                <div class="w-2/12">
                     <h2>=</h2>
                 </div>
 
-                <div class="col-3">
+                <div class="w-2/12">
                     <input
                         type="text"
-                        :class="checkClass[index]"
+                        :class="`border ${checkClass[index]} w-full text-center box-border`"
                         data-index="index"
                         v-model="ans[index]"
                         @change="changeIndex(index)"
                     >
                 </div>
 
-                <i
-                    class="fa-sharp fa-solid fa-xmark col"
-                    :class="checkClass[index]"
-                ></i>
+                <div class="w-1/12">
+                    <span v-if="checkClass[index].includes('right-answer')" class="mdi mdi-check text-lime-500"></span>
+                </div>
             </div>
 
-            <div class="row">
-                <h1 v-if="score > 0">分數：{{score}}</h1>
+            <div
+                class="md:w-6/12 mx-auto font-bold text-4xl mt-20 flex items-center justify-between">
+                <button
+                    class="group rounded-2xl h-12 w-48 bg-green-500 font-bold text-lg text-white relative overflow-hidden"
+                    @click="restart"
+                >
+                    重新開始
+                    <div
+                        class="absolute duration-300 inset-0 w-full h-full transition-all scale-0 group-hover:scale-100 group-hover:bg-white/30 rounded-2xl">
+                    </div>
+                </button>
+                <h1>總分：{{score}}</h1>
             </div>
 
         </div>
@@ -73,18 +82,21 @@ export default {
                 this.examList[idx][0] * this.examList[idx][1];
 
             if (rightAns == this.ans[idx]) {
-                this.checkClass[idx] = 'right';
+                this.checkClass[idx] = 'right-answer';
             } else {
-                this.checkClass[idx] = 'err';
+                this.checkClass[idx] = 'border-red-500 border-2 wrong-answer';
                 console.log(rightAns);
             }
         },
+        restart(){
+            location.reload();
+        }
     },
     computed: {
         score() {
             let total = 0;
             for (let i = 0; i < this.checkClass.length; i++) {
-                if (this.checkClass[i] == 'right') {
+                if (this.checkClass[i].includes('right-answer')) {
                     total += 100 / this.checkClass.length;
                 }
             }
