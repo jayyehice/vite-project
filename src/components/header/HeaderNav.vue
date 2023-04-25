@@ -57,7 +57,7 @@ export default {
     data() {
         return {
             menu_list: [
-                ['數學', [['乘法', '/multiplication']]],
+                ['數學', [['乘法', '/learning/multiplication']]],
                 ['英文', [['單字', '#']]],
             ],
         };
