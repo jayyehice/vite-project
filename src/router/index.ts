@@ -1,13 +1,13 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router'
 
 const routes = [
-  {path: '/learning/', name: 'home', component: () => import('../components/home/Index.vue')},
-  {path: '/learning/multiplication', name: 'Multiplication', component: () => import('../components/Multiplication.vue')},
-  {path: '/learning/test', name: 'test', component: () => import('../components/HelloWorld.vue')},
+  {path: '/', name: 'home', component: () => import('../components/home/Index.vue')},
+  {path: '/multiplication', name: 'Multiplication', component: () => import('../components/Multiplication.vue')},
+  {path: '/test', name: 'test', component: () => import('../components/HelloWorld.vue')},
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes
 })
 
